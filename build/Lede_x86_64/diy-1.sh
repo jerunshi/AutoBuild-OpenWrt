@@ -18,3 +18,4 @@ git clone https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
 git clone https://github.com/garypang13/smartdns-le package/smartdns-le
 git clone https://github.com/garypang13/luci-app-dnsfilter package/luci-app-dnsfilter
 git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
+git clone https://github.com/siropboy/luci-app-autotimeset
