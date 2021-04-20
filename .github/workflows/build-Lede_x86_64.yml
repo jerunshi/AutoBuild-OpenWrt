@@ -245,16 +245,14 @@ jobs:
         fi
         cd bin/targets/*/*
         rm -rf packages && mkdir packages
-        find -name "*buildinfo*" | xargs -i mv -f {} packages
-        find -name "*sha256sums*" | xargs -i mv -f {} packages
-        find -name "*kernel.bin*" | xargs -i mv -f {} packages
-        find -name "*kernel1.bin*" | xargs -i mv -f {} packages
-        find -name "*manifest*" | xargs -i mv -f {} packages
-        find -name "*vmlinuz*" | xargs -i mv -f {} packages
-        find -name "*esxi.vmdk*" | xargs -i mv -f {} packages
-        find -name "*Image*" | xargs -i mv -f {} packages
-        find -name "*rootfs-squashfs*" | xargs -i mv -f {} packages
-        find -name "*squashfs-rootfs*" | xargs -i mv -f {} packages
+        # find -name "*buildinfo*" | xargs -i mv -f {} packages
+        # find -name "*sha256sums*" | xargs -i mv -f {} packages
+        # find -name "*manifest*" | xargs -i mv -f {} packages
+        # find -name "*vmlinuz*" | xargs -i mv -f {} packages
+        # find -name "*Image*" | xargs -i mv -f {} packages
+        rm -rf `ls | grep -v "openwrt-x86-64-generic-squashfs-combined-efi.img"`
+        mv openwrt-x86-64-generic-squashfs-combined-efi.img openwrt-${{matrix.target}}-${{ env.date }}.img
+        gzip *.img
         rm -rf packages
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "BOT=TRUE" >> $GITHUB_ENV
